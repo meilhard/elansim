@@ -1,0 +1,4513 @@
+#Inventor V2.1 ascii
+
+
+VRMLGroup {
+  children [ 
+    VRMLScript {
+      field SFString       Name "test_170105_Mon-10-12-14"
+
+      field SFInt32       Intervall 0
+
+
+    },
+          PROTO ShaftSystem [
+      field SFInt32      Id 0
+      field MFFloat      aVec [  ]
+      field MFFloat      bVec [  ]
+      field SFFloat      BHDmin 0.5
+    ]
+    {
+
+      DEF ShaftSystem VRMLScript {
+        field SFInt32         Id 0
+
+        field MFFloat         aVec [  ]
+
+        field MFFloat         bVec [  ]
+
+        field SFFloat         BHDmin 0
+
+        Id IS Id
+        aVec IS aVec
+        bVec IS bVec
+        BHDmin IS BHDmin
+
+      }    }
+,
+      
+    ShaftSystem {
+      Id 100
+      aVec [ 0, 0, 0, 0,
+          0, 0 ]
+      bVec [ 0, 0, 0, 0,
+          0, 0 ]
+
+    },
+      
+    ShaftSystem {
+      Id 101
+      aVec [ 38.077999, -444.48901, 2230.5449, -4933.5122,
+          4876.312, -1764.531 ]
+      bVec [ 0.384, 15.462, -79.549004, 170.589,
+          -166.44701, 60.493 ]
+
+    },
+      
+    ShaftSystem {
+      Id 102
+      aVec [ 48.494999, -151.543, -45.410999, 659.22803,
+          -799.35303, 290.271 ]
+      bVec [ 0.42399999, 8.5059996, -29.882999, 48.217999,
+          -40.68, 14.347 ]
+
+    },
+      
+    ShaftSystem {
+      Id 103
+      aVec [ 30.250999, -277.133, 1116.3571, -2182.552,
+          2070, -755.50897 ]
+      bVec [ 0.73900002, 9.8719997, -45.723999, 89.446999,
+          -84.460999, 31.079 ]
+
+    },
+      
+    ShaftSystem {
+      Id 104
+      aVec [ 35.52, -230.925, 1152.046, -2863.0029,
+          3181.8821, -1274.832 ]
+      bVec [ 0.40599999, 7.3790002, -39.080002, 95.780998,
+          -108.051, 44.566002 ]
+
+    },
+          PROTO Species [
+      field SFInt32      Id 0
+      field SFString      description ""
+      field SFInt32      Shaftform -1
+      field SFString      CrownTexture ""
+      field SFString      StemTexture ""
+    ]
+    {
+
+      DEF Species VRMLScript {
+        field SFInt32         Id 0
+
+        field SFString         description ""
+
+        field SFInt32         Shaftform 0
+
+        field SFString         CrownTexture ""
+
+        field SFString         StemTexture ""
+
+        Id IS Id
+        description IS description
+        Shaftform IS Shaftform
+        CrownTexture IS CrownTexture
+        StemTexture IS StemTexture
+
+      }    }
+,
+      
+    Species {
+      Id 0
+      description "Birch"
+      Shaftform 104
+      CrownTexture "tree_7_right.gif"
+      StemTexture "wood_20.jpg"
+
+    },
+      
+    Species {
+      Id 1
+      description "Beech"
+      Shaftform 103
+      CrownTexture "tree_3_right.gif"
+      StemTexture "S_S_Bark1.jpg"
+
+    },
+      
+    Species {
+      Id 2
+      description "Tree"
+      Shaftform 102
+      CrownTexture "tree_3_right.gif"
+      StemTexture "wood_20.jpg"
+
+    },
+          PROTO GGInfo [
+      field SFString      Name ""
+      field SFString      Scriptpath ""
+      field SFString      IP ""
+      field SFInt32      minAge 0
+      field SFInt32      maxAge 0
+    ]
+    {
+
+      DEF GGInfo VRMLScript {
+        field SFString         Name ""
+
+        field SFString         Scriptpath ""
+
+        field SFString         IP ""
+
+        field SFInt32         minAge 0
+
+        field SFInt32         maxAge 0
+
+        Name IS Name
+        Scriptpath IS Scriptpath
+        IP IS IP
+        minAge IS minAge
+        maxAge IS maxAge
+
+      }    }
+,
+          PROTO TREE [
+      field SFInt32      ID 0
+      field SFString      Species ""
+      field SFInt32      status 0
+      field MFString      labels ""
+      field MFString      data ""
+      field SFVec3f      position 0 0 0
+      field MFString      stem_texture "wood_20.jpg"
+      field SFVec3f      stem_size 0.69999999 1 1
+      field MFString      crown_texture "tree_7_right.gif"
+      field MFFloat      crown_values [ 1, 1, 1, 1,
+          1, 1 ]
+      field SFVec3f      crown_size 1 1 1
+      field SFVec3f      crown_position 0 0 0
+      field SFInt32      Shaftform -9999
+    ]
+    {
+
+      DEF Tree VRMLTransform {
+        translation IS position
+        children [ 
+          DEF Info VRMLScript {
+            field SFInt32             ID 0
+
+            field SFString             Species ""
+
+            field SFInt32             Shaftform 0
+
+            field SFInt32             Status 0
+
+            field MFString             Labels [  ]
+
+            field MFString             Data [  ]
+
+            field MFFloat             CrownValues [  ]
+
+            ID IS ID
+            Species IS Species
+            Shaftform IS Shaftform
+            Status IS status
+            Labels IS labels
+            Data IS data
+            CrownValues IS crown_values
+
+          },
+            
+          DEF Stem VRMLTransform {
+            translation 0 0 0
+            scale IS stem_size
+            children 
+              DEF StemShape VRMLShape {
+                appearance 
+                DEF StemAppearance VRMLAppearance {
+                  material 
+                  VRMLMaterial {
+                    diffuseColor 0.80000001 0.80000001 0.80000001
+                    transparency 0
+
+                  }
+                  texture 
+                  VRMLImageTexture {
+                    url IS stem_texture
+
+                  }
+                  textureTransform 
+                  VRMLTextureTransform {
+                    scale 2 7
+
+                  }
+
+                }
+                geometry 
+                DEF StemGeometry VRMLExtrusion {
+                  crossSection [ 0.5 0,
+                      0.46193999 -0.191342,
+                      0.353553 -0.353553,
+                      0.191342 -0.46193999,
+                      0 -0.5,
+                      -0.191342 -0.46193999,
+                      -0.353553 -0.353553,
+                      -0.46193999 -0.191342,
+                      -0.5 0,
+                      -0.46193999 0.191342,
+                      -0.353553 0.353553,
+                      -0.191342 0.46193999,
+                      0 0.5,
+                      0.191342 0.46193999,
+                      0.353553 0.353553,
+                      0.46193999 0.191342,
+                      0.5 0 ]
+                  scale [ 1 1,
+                      0.90100002 0.90100002,
+                      0.87 0.87,
+                      0.8545 0.8545,
+                      0.8179 0.8179,
+                      0.76800001 0.76800001,
+                      0.72149998 0.72149998,
+                      0.69999999 0.69999999,
+                      0.65170002 0.65170002,
+                      0.5 0.5,
+                      0.44639999 0.44639999,
+                      0.3872 0.3872,
+                      0.29319999 0.29319999,
+                      0.2 0.2 ]
+                  spine [ 0 0 0,
+                      0 0.02 0,
+                      0 0.039999999 0,
+                      0 0.050000001 0,
+                      0 0.073564798 0,
+                      0 0.110625 0,
+                      0 0.159907 0,
+                      0 0.19 0,
+                      0 0.33000001 0,
+                      0 0.76999998 0,
+                      0 0.84208 0,
+                      0 0.89823997 0,
+                      0 0.95893002 0,
+                      0 1 0 ]
+
+                }
+
+              }
+
+          },
+            
+          DEF Marker VRMLTransform {
+            translation 0 0 0
+            scale 1 1 1
+            children 
+              DEF MarkerShape VRMLShape {
+                appearance 
+                DEF MarkerAppearance VRMLAppearance {
+                  material 
+                  VRMLMaterial {
+                    diffuseColor 0 1 0
+                    transparency 1
+
+                  }
+                  texture 
+                  VRMLImageTexture {
+                    url ""
+
+                  }
+
+                }
+                geometry 
+                DEF MarkerGeometry VRMLCylinder {
+                  radius 1
+                  height 0.2
+
+                }
+
+              }
+
+          },
+            
+          DEF Crown VRMLTransform {
+            translation IS crown_position
+            scale IS crown_size
+            center 0 0 0
+            children [ 
+              VRMLTransform {
+                children 
+                  DEF CrownShape VRMLShape {
+                    appearance 
+                    DEF CrownAppearance VRMLAppearance {
+                      material 
+                      VRMLMaterial {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      VRMLImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      VRMLTextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry VRMLIndexedFaceSet {
+                      coord 
+                      VRMLCoordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      VRMLTextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              VRMLTransform {
+                rotation 0 1.0000001 0  1.0459999
+                children 
+                  DEF CrownShape VRMLShape {
+                    appearance 
+                    DEF CrownAppearance VRMLAppearance {
+                      material 
+                      VRMLMaterial {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      VRMLImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      VRMLTextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry VRMLIndexedFaceSet {
+                      coord 
+                      VRMLCoordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      VRMLTextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              VRMLTransform {
+                rotation 0 1 0  2.092
+                children 
+                  DEF CrownShape VRMLShape {
+                    appearance 
+                    DEF CrownAppearance VRMLAppearance {
+                      material 
+                      VRMLMaterial {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      VRMLImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      VRMLTextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry VRMLIndexedFaceSet {
+                      coord 
+                      VRMLCoordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      VRMLTextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              VRMLTransform {
+                rotation 0 1 0  3.1400001
+                children 
+                  DEF CrownShape VRMLShape {
+                    appearance 
+                    DEF CrownAppearance VRMLAppearance {
+                      material 
+                      VRMLMaterial {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      VRMLImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      VRMLTextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry VRMLIndexedFaceSet {
+                      coord 
+                      VRMLCoordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      VRMLTextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              VRMLTransform {
+                rotation 0 1 0  4.152
+                children 
+                  DEF CrownShape VRMLShape {
+                    appearance 
+                    DEF CrownAppearance VRMLAppearance {
+                      material 
+                      VRMLMaterial {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      VRMLImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      VRMLTextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry VRMLIndexedFaceSet {
+                      coord 
+                      VRMLCoordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      VRMLTextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              VRMLTransform {
+                rotation 0 1 0  5.1659999
+                children 
+                  DEF CrownShape VRMLShape {
+                    appearance 
+                    DEF CrownAppearance VRMLAppearance {
+                      material 
+                      VRMLMaterial {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      VRMLImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      VRMLTextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry VRMLIndexedFaceSet {
+                      coord 
+                      VRMLCoordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      VRMLTextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              } ]
+
+          } ]
+
+      }    }
+,
+      
+    GGInfo {
+      Name "Wachstumsgenerator1"
+      Scriptpath "http://134.76.193.205/elan-sim/empfangen4.cfm"
+      IP "134.76.193.205"
+      minAge 0
+      maxAge 15
+
+    },
+      
+    GGInfo {
+      Name "Wachstumsgenerator2"
+      Scriptpath "http://134.76.193.210/elan-sim/empfangen4.cfm"
+      IP "134.76.193.205"
+      minAge 1
+      maxAge 30
+
+    },
+      
+    GGInfo {
+      Name "Wachstumsgenerator3"
+      Scriptpath "http://134.76.193.215/elan-sim/empfangen4.cfm"
+      IP "134.76.193.205"
+      minAge 2
+      maxAge 45
+
+    },
+      
+    VRMLWorldInfo {
+      title "1. Waldbestand"
+      info [ "Dieser Waldbestand ist der erste Testbestand",
+          "des Instituts für Forstliche Biometrie und",
+          "Informatik.",
+          "Ich schreibe diesen Text eigentlich nur um",
+          "zu testen ob man soviel Text auch anzeigen lassen",
+          "kann!" ]
+
+    },
+      
+    VRMLBackground {
+      groundColor [ 0 0 0,
+          0.2 0.1 0,
+          0.30000001 0.2 0.1 ]
+      skyColor [ 0 0 0,
+          0 0.5 1,
+          1 1 1 ]
+      groundAngle [ 0.78500003, 1.5700001 ]
+      skyAngle [ 0.78500003, 1.571 ]
+
+    },
+      
+    VRMLShape {
+      appearance 
+      VRMLAppearance {
+        material 
+        VRMLMaterial {
+
+        }
+        texture 
+        VRMLImageTexture {
+          repeatS TRUE
+          repeatT TRUE
+          url "bewuchs1.jpg"
+
+        }
+        textureTransform 
+        VRMLTextureTransform {
+          scale 30 30
+
+        }
+
+      }
+      geometry 
+      VRMLElevationGrid {
+        solid TRUE
+        creaseAngle 1
+        zDimension 24
+        xDimension 24
+        zSpacing 5
+        xSpacing 5
+        height [ 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 0, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            4, 4, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 4, 4,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 0, 0, 0,
+            0, 2, 2, 2,
+            2, 2, 1, 2,
+            1, 2, 3, 3,
+            4, 5, 5, 4,
+            3, 2, 1, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 0, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            4, 4, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 4, 4,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0 ]
+
+      }
+
+    },
+      
+    DEF DefaultSystem ShaftSystem {
+      Id -1
+      aVec [ 18.354, -16.507, -23.066, -131.91701,
+          351.72, -197.61301 ]
+      bVec [ 1.1799999, 0.47400001, -3.5999999, 12.381,
+          -19.007999, 9.5719995 ]
+
+    },
+      
+    DEF BuildInfo VRMLScript {
+      field SFBool       useShaftSystem FALSE
+
+      field SFBool       adjustYPosition FALSE
+
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "0",
+          "33.66  16.34",
+          "13.5",
+          "3.05" ]
+      position 33.66 0 16.34
+      stem_texture "S_S_Bark1.jpg"
+      stem_size 0.69999999 18.5 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 7.1799998 19.5 7.1799998
+      crown_position 0 10.18 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "1",
+          "32.86  12.55",
+          "13.5",
+          "3.05" ]
+      position 32.860001 0 12.55
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.5 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 7.1799998 18.5 7.1799998
+      crown_position 0 11.18 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "2",
+          "0.09  19.02",
+          "13.31",
+          "2.99" ]
+      position 0.090000004 0 19.02
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.309999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 7.0900002 20.309999 7.0900002
+      crown_position 0 10.09 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "3",
+          "9.22  21.72",
+          "13.28",
+          "2.98" ]
+      position 9.2200003 0 21.719999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.280001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 7.0799999 18.280001 7.0799999
+      crown_position 0 11.08 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "4",
+          "26.48  4.65",
+          "13.18",
+          "2.95" ]
+      position 26.48 0 4.6500001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.18 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 7.0300002 19.18 7.0300002
+      crown_position 0 9.0299997 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "5",
+          "32.63  27.97",
+          "13.13",
+          "2.94" ]
+      position 32.630001 0 27.969999
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 3 9 3
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "6",
+          "26.45  17.39",
+          "13.07",
+          "2.92" ]
+      position 26.450001 0 17.389999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.07 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.98 19.07 6.98
+      crown_position 0 11.98 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "7",
+          "3.29  11.21",
+          "13.06",
+          "2.92" ]
+      position 3.29 0 11.21
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2.5 6 2.5
+      crown_position 0 0.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "8",
+          "5.26  7.62",
+          "13.05",
+          "2.91" ]
+      position 5.2600002 0 7.6199999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.049999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.9699998 17.049999 6.9699998
+      crown_position 0 10.97 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "9",
+          "13.82  16.02",
+          "13.05",
+          "2.91" ]
+      position 13.82 0 16.02
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.049999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.9699998 20.049999 6.9699998
+      crown_position 0 11.97 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "10",
+          "9.71  6.7",
+          "13.04",
+          "2.91" ]
+      position 9.71 0 6.6999998
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.040001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.9699998 18.040001 6.9699998
+      crown_position 0 9.9700003 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "11",
+          "6.75  2.2",
+          "12.99",
+          "2.9" ]
+      position 6.75 0 2.2
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.99 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.9499998 19.99 6.9499998
+      crown_position 0 10.95 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "12",
+          "25.52  7.61",
+          "12.94",
+          "2.88" ]
+      position 25.52 0 7.6100001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.940001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.9200001 19.940001 6.9200001
+      crown_position 0 11.92 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "13",
+          "16.24  5.91",
+          "12.91",
+          "2.87" ]
+      position 16.24 0 5.9099998
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 4.5 14 4.5
+      crown_position 0 5.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "14",
+          "12.83  19.26",
+          "12.89",
+          "2.86" ]
+      position 12.83 0 19.26
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.889999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.9000001 20.889999 6.9000001
+      crown_position 0 10.9 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "15",
+          "6.73  14.82",
+          "12.87",
+          "2.86" ]
+      position 6.73 0 14.82
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.870001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8899999 18.870001 6.8899999
+      crown_position 0 11.89 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "16",
+          "34.03  21.71",
+          "12.83",
+          "2.85" ]
+      position 34.029999 0 21.709999
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 5 17.799999 5
+      crown_position 0 5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "17",
+          "30.38  10.65",
+          "12.83",
+          "2.84" ]
+      position 30.379999 0 10.65
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.83 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.8699999 20.83 6.8699999
+      crown_position 0 10.87 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "18",
+          "25.96  29.71",
+          "12.81",
+          "2.84" ]
+      position 25.959999 0 29.709999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.809999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8600001 18.809999 6.8600001
+      crown_position 0 11.86 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "19",
+          "15.58  21.95",
+          "12.79",
+          "2.83" ]
+      position 15.58 0 21.950001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.790001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8499999 19.790001 6.8499999
+      crown_position 0 10.85 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "20",
+          "4.33  22.71",
+          "12.78",
+          "2.83" ]
+      position 4.3299999 0 22.709999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.780001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.8400002 18.780001 6.8400002
+      crown_position 0 11.84 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "21",
+          "15.47  34.42",
+          "12.76",
+          "2.82" ]
+      position 15.47 0 34.419998
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_7_right.gif"
+      crown_size 4 13 4
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "22",
+          "14.72  27.33",
+          "12.76",
+          "2.82" ]
+      position 14.72 0 27.33
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 20.76 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8400002 18.76 6.8400002
+      crown_position 0 9.8400002 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "23",
+          "20.56  14.03",
+          "12.75",
+          "2.82" ]
+      position 20.559999 0 14.03
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.75 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8299999 20.75 6.8299999
+      crown_position 0 10.83 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "24",
+          "29.46  1.72",
+          "12.75",
+          "2.82" ]
+      position 29.459999 0 1.72
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 4.5 13 4.5
+      crown_position 0 5.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "25",
+          "7.72  11.99",
+          "12.74",
+          "2.82" ]
+      position 7.7199998 0 11.99
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.74 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8299999 19.74 6.8299999
+      crown_position 0 10.83 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "26",
+          "3.52  15.2",
+          "12.74",
+          "2.82" ]
+      position 3.52 0 15.2
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 3 9.5 3
+      crown_position 0 3.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "27",
+          "5.9  30.89",
+          "12.74",
+          "2.82" ]
+      position 5.9000001 0 30.889999
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2.5 6 2.5
+      crown_position 0 0.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "28",
+          "20.28  26.17",
+          "12.71",
+          "2.81" ]
+      position 20.280001 0 26.17
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.709999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.8099999 19.709999 6.8099999
+      crown_position 0 9.8100004 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "29",
+          "21.93  5.84",
+          "12.69",
+          "2.8" ]
+      position 21.93 0 5.8400002
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.690001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8000002 20.690001 6.8000002
+      crown_position 0 10.8 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "30",
+          "14.61  8.29",
+          "12.69",
+          "2.8" ]
+      position 14.61 0 8.29
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.690001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8000002 18.690001 6.8000002
+      crown_position 0 11.8 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "31",
+          "2.12  1.39",
+          "12.68",
+          "2.8" ]
+      position 2.1199999 0 1.39
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.68 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.8000002 18.68 6.8000002
+      crown_position 0 9.8000002 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "32",
+          "29.22  21.42",
+          "12.68",
+          "2.8" ]
+      position 29.219999 0 21.42
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.68 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.79 20.68 6.79
+      crown_position 0 10.79 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "33",
+          "0.03  7.86",
+          "12.68",
+          "2.8" ]
+      position 0.029999999 0 7.8600001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.68 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.79 19.68 6.79
+      crown_position 0 11.79 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "34",
+          "18.72  32.33",
+          "12.67",
+          "2.8" ]
+      position 18.719999 0 32.330002
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 20.67 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.79 20.67 6.79
+      crown_position 0 10.79 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "35",
+          "18.54  19.28",
+          "12.65",
+          "2.79" ]
+      position 18.540001 0 19.280001
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 5 17 5
+      crown_position 0 5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "36",
+          "21.89  21.01",
+          "12.65",
+          "2.79" ]
+      position 21.889999 0 21.01
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.65 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.7800002 19.65 6.7800002
+      crown_position 0 10.78 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "37",
+          "24.86  22.15",
+          "12.65",
+          "2.79" ]
+      position 24.860001 0 22.15
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.65 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.7800002 18.65 6.7800002
+      crown_position 0 11.78 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "38",
+          "31.49  7.14",
+          "12.64",
+          "2.79" ]
+      position 31.49 0 7.1399999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.639999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.7800002 20.639999 6.7800002
+      crown_position 0 9.7799997 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "39",
+          "31.43  31.9",
+          "12.62",
+          "2.78" ]
+      position 31.43 0 31.9
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 3 8 3
+      crown_position 0 1.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "40",
+          "17.16  13.68",
+          "12.61",
+          "2.78" ]
+      position 17.16 0 13.68
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 4.5 14 4.5
+      crown_position 0 5.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "41",
+          "0.35  14.47",
+          "12.6",
+          "2.78" ]
+      position 0.34999999 0 14.47
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.6 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.7600002 18.6 6.7600002
+      crown_position 0 9.7600002 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "42",
+          "10.87  16.99",
+          "12.6",
+          "2.78" ]
+      position 10.87 0 16.99
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 20.6 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.7600002 19.6 6.7600002
+      crown_position 0 10.76 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "43",
+          "28.35  24.84",
+          "12.59",
+          "2.77" ]
+      position 28.35 0 24.84
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.59 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.75 20.59 6.75
+      crown_position 0 10.75 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "44",
+          "33.81  33.33",
+          "12.58",
+          "2.77" ]
+      position 33.810001 0 33.330002
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_7_right.gif"
+      crown_size 3.5 12 3.5
+      crown_position 0 2.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "45",
+          "34.51  1.56",
+          "12.58",
+          "2.77" ]
+      position 34.509998 0 1.5599999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.58 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.75 19.58 6.75
+      crown_position 0 11.75 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "46",
+          "1.85  28.45",
+          "12.57",
+          "2.77" ]
+      position 1.85 0 28.450001
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 2.5 8 2.5
+      crown_position 0 2.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "47",
+          "26.08  32.75",
+          "12.57",
+          "2.77" ]
+      position 26.08 0 32.75
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.57 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.7399998 18.57 6.7399998
+      crown_position 0 9.7399998 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "48",
+          "19.47  22.99",
+          "12.56",
+          "2.76" ]
+      position 19.469999 0 22.99
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.559999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.7399998 17.559999 6.7399998
+      crown_position 0 10.74 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "49",
+          "10.78  33.24",
+          "12.54",
+          "2.76" ]
+      position 10.78 0 33.240002
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.540001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.73 20.540001 6.73
+      crown_position 0 9.7299995 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "50",
+          "7.11  4.97",
+          "12.54",
+          "2.76" ]
+      position 7.1100001 0 4.9699998
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.540001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.73 18.540001 6.73
+      crown_position 0 10.73 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "51",
+          "22.5  27.85",
+          "12.54",
+          "2.76" ]
+      position 22.5 0 27.85
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.540001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.73 19.540001 6.73
+      crown_position 0 11.73 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "52",
+          "8.19  35.32",
+          "12.53",
+          "2.76" ]
+      position 8.1899996 0 35.32
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.530001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.73 20.530001 6.73
+      crown_position 0 9.7299995 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "53",
+          "0.07  31.75",
+          "12.52",
+          "2.75" ]
+      position 0.07 0 31.75
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.52 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.7199998 18.52 6.7199998
+      crown_position 0 10.72 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "54",
+          "11.77  10.73",
+          "12.5",
+          "2.75" ]
+      position 11.77 0 10.73
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 20.5 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.71 19.5 6.71
+      crown_position 0 11.71 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "55",
+          "28.46  29.01",
+          "12.48",
+          "2.74" ]
+      position 28.459999 0 29.01
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.48 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6999998 20.48 6.6999998
+      crown_position 0 9.6999998 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "56",
+          "15.03  1.1",
+          "12.47",
+          "2.74" ]
+      position 15.03 0 1.1
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2.5 6 2.5
+      crown_position 0 0.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "57",
+          "7.04  26.97",
+          "12.47",
+          "2.74" ]
+      position 7.04 0 26.969999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.469999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6999998 19.469999 6.6999998
+      crown_position 0 11.7 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "58",
+          "24.97  11.64",
+          "12.47",
+          "2.74" ]
+      position 24.969999 0 11.64
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.469999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6900001 20.469999 6.6900001
+      crown_position 0 9.6899996 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "59",
+          "11.36  4.77",
+          "12.43",
+          "2.73" ]
+      position 11.36 0 4.77
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.43 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6700001 18.43 6.6700001
+      crown_position 0 10.67 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "60",
+          "33.5  24.87",
+          "12.42",
+          "2.72" ]
+      position 33.5 0 24.870001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.42 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6700001 17.42 6.6700001
+      crown_position 0 10.67 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "61",
+          "23.41  24.08",
+          "12.42",
+          "2.72" ]
+      position 23.41 0 24.08
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.42 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6700001 20.42 6.6700001
+      crown_position 0 9.6700001 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "62",
+          "25.96  0.97",
+          "12.42",
+          "2.72" ]
+      position 25.959999 0 0.97000003
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 4 15.5 4
+      crown_position 0 4 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "63",
+          "10.42  25.13",
+          "12.42",
+          "2.72" ]
+      position 10.42 0 25.129999
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 5 15 5
+      crown_position 0 6.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "64",
+          "2.23  4.89",
+          "12.42",
+          "2.72" ]
+      position 2.23 0 4.8899999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.42 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6700001 18.42 6.6700001
+      crown_position 0 9.6700001 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "65",
+          "22.61  34.22",
+          "12.41",
+          "2.72" ]
+      position 22.610001 0 34.220001
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_7_right.gif"
+      crown_size 3 11 3
+      crown_position 0 2 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "66",
+          "21.34  8.83",
+          "12.4",
+          "2.72" ]
+      position 21.34 0 8.8299999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 20.4 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6599998 20.4 6.6599998
+      crown_position 0 11.66 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "67",
+          "16.54  29.69",
+          "12.39",
+          "2.71" ]
+      position 16.540001 0 29.690001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.389999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6599998 18.389999 6.6599998
+      crown_position 0 10.66 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "68",
+          "30.7  17.45",
+          "12.39",
+          "2.71" ]
+      position 30.700001 0 17.450001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.389999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6599998 19.389999 6.6599998
+      crown_position 0 9.6599998 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "69",
+          "31.8  3.02",
+          "12.39",
+          "2.71" ]
+      position 31.799999 0 3.02
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.389999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6500001 20.389999 6.6500001
+      crown_position 0 10.65 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "70",
+          "12.17  22.41",
+          "12.38",
+          "2.71" ]
+      position 12.17 0 22.41
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.379999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6500001 18.379999 6.6500001
+      crown_position 0 11.65 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "71",
+          "23.37  17.83",
+          "12.38",
+          "2.71" ]
+      position 23.370001 0 17.83
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 3 9 3
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "72",
+          "27.7  13.01",
+          "12.37",
+          "2.71" ]
+      position 27.700001 0 13.01
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.370001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6500001 19.370001 6.6500001
+      crown_position 0 9.6499996 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "73",
+          "15.23  11.35",
+          "12.36",
+          "2.71" ]
+      position 15.23 0 11.35
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2 4 2
+      crown_position 0 0.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "74",
+          "8.25  30.96",
+          "12.36",
+          "2.7" ]
+      position 8.25 0 30.959999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.360001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6399999 20.360001 6.6399999
+      crown_position 0 11.64 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "75",
+          "18.06  9.62",
+          "12.35",
+          "2.7" ]
+      position 18.059999 0 9.6199999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.35 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6399999 17.35 6.6399999
+      crown_position 0 9.6400003 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "76",
+          "17.73  1.71",
+          "12.35",
+          "2.7" ]
+      position 17.73 0 1.71
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 20.35 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6399999 19.35 6.6399999
+      crown_position 0 10.64 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "77",
+          "12.55  29.2",
+          "12.35",
+          "2.7" ]
+      position 12.55 0 29.200001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.35 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6399999 18.35 6.6399999
+      crown_position 0 9.6400003 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "78",
+          "25.88  25.86",
+          "12.33",
+          "2.7" ]
+      position 25.879999 0 25.860001
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 5 17 5
+      crown_position 0 5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "79",
+          "33.37  18.57",
+          "12.33",
+          "2.7" ]
+      position 33.369999 0 18.57
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.33 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6300001 18.33 6.6300001
+      crown_position 0 10.63 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "80",
+          "1.76  21.57",
+          "12.32",
+          "2.69" ]
+      position 1.76 0 21.57
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.32 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6199999 19.32 6.6199999
+      crown_position 0 11.62 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "81",
+          "20.78  16.92",
+          "12.31",
+          "2.69" ]
+      position 20.780001 0 16.92
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 4.5 14 4.5
+      crown_position 0 5.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "82",
+          "11.18  13.93",
+          "12.3",
+          "2.69" ]
+      position 11.18 0 13.93
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.299999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.6100001 18.299999 6.6100001
+      crown_position 0 11.61 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "83",
+          "28.96  34.84",
+          "12.29",
+          "2.69" ]
+      position 28.959999 0 34.84
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.290001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6100001 19.290001 6.6100001
+      crown_position 0 10.61 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "84",
+          "22.71  13.22",
+          "12.29",
+          "2.68" ]
+      position 22.709999 0 13.22
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.290001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6100001 20.290001 6.6100001
+      crown_position 0 9.6099997 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "85",
+          "4.76  34.37",
+          "12.29",
+          "2.68" ]
+      position 4.7600002 0 34.369999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.290001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.6100001 18.290001 6.6100001
+      crown_position 0 10.61 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "86",
+          "0.29  10.4",
+          "12.28",
+          "2.68" ]
+      position 0.28999999 0 10.4
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.280001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5999999 17.280001 6.5999999
+      crown_position 0 11.6 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "87",
+          "33.98  4.2",
+          "12.28",
+          "2.68" ]
+      position 33.98 0 4.1999998
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2.5 6 2.5
+      crown_position 0 0.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "88",
+          "16.84  17.08",
+          "12.28",
+          "2.68" ]
+      position 16.84 0 17.08
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.280001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5999999 18.280001 6.5999999
+      crown_position 0 10.6 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "89",
+          "18.68  21.2",
+          "12.28",
+          "2.68" ]
+      position 18.68 0 21.200001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 20.280001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5999999 20.280001 6.5999999
+      crown_position 0 11.6 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "90",
+          "32.34  0.4",
+          "12.27",
+          "2.68" ]
+      position 32.34 0 0.40000001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.27 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5999999 18.27 6.5999999
+      crown_position 0 10.6 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "91",
+          "12.9  2.09",
+          "12.27",
+          "2.68" ]
+      position 12.9 0 2.0899999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.27 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5999999 19.27 6.5999999
+      crown_position 0 9.6000004 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "92",
+          "9.22  1.63",
+          "12.27",
+          "2.68" ]
+      position 9.2200003 0 1.63
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.27 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5999999 20.27 6.5999999
+      crown_position 0 10.6 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "93",
+          "4.76  18.26",
+          "12.27",
+          "2.68" ]
+      position 4.7600002 0 18.26
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.27 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5999999 18.27 6.5999999
+      crown_position 0 11.6 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "94",
+          "17.35  23.62",
+          "12.26",
+          "2.68" ]
+      position 17.35 0 23.620001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.26 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5999999 19.26 6.5999999
+      crown_position 0 9.6000004 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "95",
+          "22.43  3.3",
+          "12.25",
+          "2.67" ]
+      position 22.43 0 3.3
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 3.5 10 3.5
+      crown_position 0 4 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "96",
+          "19.57  5.19",
+          "12.24",
+          "2.67" ]
+      position 19.57 0 5.1900001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.24 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5799999 20.24 6.5799999
+      crown_position 0 9.5799999 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "97",
+          "29.65  27.04",
+          "12.24",
+          "2.67" ]
+      position 29.65 0 27.040001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.24 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5799999 18.24 6.5799999
+      crown_position 0 10.58 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "98",
+          "23.44  31.26",
+          "12.21",
+          "2.66" ]
+      position 23.440001 0 31.26
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 4 13 4
+      crown_position 0 4.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "99",
+          "4.13  25.92",
+          "12.2",
+          "2.66" ]
+      position 4.1300001 0 25.92
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_7_right.gif"
+      crown_size 4 13 4
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "100",
+          "27.7  9.73",
+          "12.2",
+          "2.66" ]
+      position 27.700001 0 9.7299995
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.200001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5700002 18.200001 6.5700002
+      crown_position 0 10.57 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "101",
+          "1.68  24.18",
+          "12.19",
+          "2.66" ]
+      position 1.6799999 0 24.18
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.190001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5599999 20.190001 6.5599999
+      crown_position 0 11.56 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "102",
+          "35.22  30.55",
+          "12.19",
+          "2.66" ]
+      position 35.220001 0 30.549999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.190001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5599999 18.190001 6.5599999
+      crown_position 0 10.56 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "103",
+          "19.67  29.63",
+          "12.18",
+          "2.65" ]
+      position 19.67 0 29.629999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.18 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5500002 19.18 6.5500002
+      crown_position 0 11.55 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "104",
+          "31.96  35.24",
+          "12.17",
+          "2.65" ]
+      position 31.959999 0 35.240002
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 8 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 5.5 19 5.5
+      crown_position 0 6 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "105",
+          "9.41  28.25",
+          "12.15",
+          "2.64" ]
+      position 9.4099998 0 28.25
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.15 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.54 19.15 6.54
+      crown_position 0 10.54 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "106",
+          "13.3  25.56",
+          "12.15",
+          "2.64" ]
+      position 13.3 0 25.559999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.15 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.54 18.15 6.54
+      crown_position 0 9.54 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "107",
+          "6.52  19.54",
+          "12.14",
+          "2.64" ]
+      position 6.52 0 19.540001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.139999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5300002 19.139999 6.5300002
+      crown_position 0 9.5299997 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "108",
+          "13.59  4.32",
+          "12.14",
+          "2.64" ]
+      position 13.59 0 4.3200002
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 3 7 3
+      crown_position 0 1 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "109",
+          "24.45  5.01",
+          "12.14",
+          "2.64" ]
+      position 24.450001 0 5.0100002
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.139999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5300002 20.139999 6.5300002
+      crown_position 0 10.53 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "110",
+          "2.24  33.69",
+          "12.14",
+          "2.64" ]
+      position 2.24 0 33.689999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.139999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5300002 18.139999 6.5300002
+      crown_position 0 11.53 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "111",
+          "26.06  20.1",
+          "12.14",
+          "2.64" ]
+      position 26.059999 0 20.1
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.139999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5300002 19.139999 6.5300002
+      crown_position 0 9.5299997 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "112",
+          "21.21  0.36",
+          "12.12",
+          "2.64" ]
+      position 21.209999 0 0.36000001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.120001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5300002 20.120001 6.5300002
+      crown_position 0 10.53 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "113",
+          "20.9  31.84",
+          "12.12",
+          "2.64" ]
+      position 20.9 0 31.84
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.120001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5300002 17.120001 6.5300002
+      crown_position 0 9.5299997 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "114",
+          "20.72  11.18",
+          "12.11",
+          "2.63" ]
+      position 20.719999 0 11.18
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.110001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.52 18.110001 6.52
+      crown_position 0 10.52 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "115",
+          "4.17  3.44",
+          "12.1",
+          "2.63" ]
+      position 4.1700001 0 3.4400001
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 5 16.5 5
+      crown_position 0 5.3000002 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "116",
+          "1.69  13.34",
+          "12.1",
+          "2.63" ]
+      position 1.6900001 0 13.34
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.1 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5100002 20.1 6.5100002
+      crown_position 0 11.51 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "117",
+          "14.79  18.07",
+          "12.09",
+          "2.63" ]
+      position 14.79 0 18.07
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.09 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5100002 17.09 6.5100002
+      crown_position 0 9.5100002 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "118",
+          "35.21  7.05",
+          "12.09",
+          "2.63" ]
+      position 35.209999 0 7.0500002
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.09 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.5100002 18.09 6.5100002
+      crown_position 0 10.51 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "119",
+          "5.79  12.13",
+          "12.08",
+          "2.63" ]
+      position 5.79 0 12.13
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 4.5 15 4.5
+      crown_position 0 5.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "120",
+          "30.18  5.32",
+          "12.08",
+          "2.63" ]
+      position 30.18 0 5.3200002
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2.5 6 2.5
+      crown_position 0 1 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "121",
+          "22.55  15.51",
+          "12.07",
+          "2.62" ]
+      position 22.549999 0 15.51
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.07 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.5 20.07 6.5
+      crown_position 0 10.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "122",
+          "14.39  30.36",
+          "12.06",
+          "2.62" ]
+      position 14.39 0 30.360001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.059999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4899998 17.059999 6.4899998
+      crown_position 0 9.4899998 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "123",
+          "0.35  29.62",
+          "12.05",
+          "2.62" ]
+      position 0.34999999 0 29.620001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.049999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4899998 18.049999 6.4899998
+      crown_position 0 11.49 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "124",
+          "34.98  27.68",
+          "12.04",
+          "2.61" ]
+      position 34.98 0 27.68
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_7_right.gif"
+      crown_size 3.5 12 3.5
+      crown_position 0 2.7 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "125",
+          "13.09  13.62",
+          "12.04",
+          "2.61" ]
+      position 13.09 0 13.62
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.040001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4899998 20.040001 6.4899998
+      crown_position 0 9.4899998 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "126",
+          "28.65  15.61",
+          "12.04",
+          "2.61" ]
+      position 28.65 0 15.61
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 3 9 3
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "127",
+          "31.65  29.68",
+          "12.01",
+          "2.61" ]
+      position 31.65 0 29.68
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.01 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4699998 19.01 6.4699998
+      crown_position 0 11.47 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "128",
+          "9.33  8.36",
+          "12.01",
+          "2.6" ]
+      position 9.3299999 0 8.3599997
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.01 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4699998 18.01 6.4699998
+      crown_position 0 9.4700003 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "129",
+          "24.66  16.1",
+          "12.01",
+          "2.6" ]
+      position 24.66 0 16.1
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 5 17 5
+      crown_position 0 5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "130",
+          "34.97  13.26",
+          "12.01",
+          "2.6" ]
+      position 34.970001 0 13.26
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.01 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4699998 19.01 6.4699998
+      crown_position 0 10.47 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "131",
+          "8.06  17.66",
+          "12.0",
+          "2.6" ]
+      position 8.0600004 0 17.66
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.46 18 6.46
+      crown_position 0 9.46 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "132",
+          "17.56  33.94",
+          "11.98",
+          "2.6" ]
+      position 17.559999 0 33.939999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.98 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.46 20.98 6.46
+      crown_position 0 10.46 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "133",
+          "26.94  2.68",
+          "11.97",
+          "2.59" ]
+      position 26.940001 0 2.6800001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.969999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4499998 18.969999 6.4499998
+      crown_position 0 11.45 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "134",
+          "10.6  19.98",
+          "11.97",
+          "2.59" ]
+      position 10.6 0 19.98
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.969999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4499998 19.969999 6.4499998
+      crown_position 0 9.4499998 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "135",
+          "5.73  0.71",
+          "11.96",
+          "2.59" ]
+      position 5.73 0 0.70999998
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 3 8 3
+      crown_position 0 1.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "136",
+          "35.32  34.87",
+          "11.96",
+          "2.59" ]
+      position 35.32 0 34.869999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.959999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4400001 18.959999 6.4400001
+      crown_position 0 10.44 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "137",
+          "31.66  22.5",
+          "11.96",
+          "2.59" ]
+      position 31.66 0 22.5
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.959999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4400001 19.959999 6.4400001
+      crown_position 0 11.44 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "138",
+          "16.4  32.12",
+          "11.95",
+          "2.59" ]
+      position 16.4 0 32.119999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.950001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4400001 17.950001 6.4400001
+      crown_position 0 10.44 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "139",
+          "12.2  24.03",
+          "11.93",
+          "2.58" ]
+      position 12.2 0 24.030001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.93 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4299998 19.93 6.4299998
+      crown_position 0 10.43 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "140",
+          "1.61  30.94",
+          "11.93",
+          "2.58" ]
+      position 1.61 0 30.940001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.93 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4299998 20.93 6.4299998
+      crown_position 0 9.4300003 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "141",
+          "8.7  14.67",
+          "11.92",
+          "2.58" ]
+      position 8.6999998 0 14.67
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.92 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4200001 18.92 6.4200001
+      crown_position 0 11.42 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "142",
+          "0.61  16.16",
+          "11.91",
+          "2.58" ]
+      position 0.61000001 0 16.16
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.91 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4200001 19.91 6.4200001
+      crown_position 0 9.4200001 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "143",
+          "6.97  23.96",
+          "11.91",
+          "2.58" ]
+      position 6.9699998 0 23.959999
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 4.5 16 4.5
+      crown_position 0 5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "144",
+          "18.3  28.07",
+          "11.89",
+          "2.57" ]
+      position 18.299999 0 28.07
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 3 8 3
+      crown_position 0 2.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "145",
+          "29.25  7.98",
+          "11.89",
+          "2.57" ]
+      position 29.25 0 7.98
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.889999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4099998 19.889999 6.4099998
+      crown_position 0 9.4099998 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "146",
+          "24.75  28.43",
+          "11.88",
+          "2.57" ]
+      position 24.75 0 28.43
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.879999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.4099998 18.879999 6.4099998
+      crown_position 0 10.41 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "147",
+          "2.9  7.97",
+          "11.88",
+          "2.57" ]
+      position 2.9000001 0 7.9699998
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.879999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4000001 20.879999 6.4000001
+      crown_position 0 9.3999996 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "148",
+          "4.11  29.93",
+          "11.87",
+          "2.57" ]
+      position 4.1100001 0 29.93
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.870001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4000001 18.870001 6.4000001
+      crown_position 0 10.4 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "149",
+          "35.04  18.8",
+          "11.87",
+          "2.56" ]
+      position 35.040001 0 18.799999
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2.5 6 2.5
+      crown_position 0 0.5 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "150",
+          "30.79  25.25",
+          "11.87",
+          "2.56" ]
+      position 30.790001 0 25.25
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.870001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.4000001 20.870001 6.4000001
+      crown_position 0 10.4 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "151",
+          "29.04  31.49",
+          "11.86",
+          "2.56" ]
+      position 29.040001 0 31.49
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_7_right.gif"
+      crown_size 4.5 15 4.5
+      crown_position 0 6 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "152",
+          "33.25  8.78",
+          "11.85",
+          "2.56" ]
+      position 33.25 0 8.7799997
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.85 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3899999 18.85 6.3899999
+      crown_position 0 10.39 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "153",
+          "30.13  32.79",
+          "11.85",
+          "2.56" ]
+      position 30.129999 0 32.790001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.85 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3899999 19.85 6.3899999
+      crown_position 0 11.39 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "154",
+          "6.98  9.33",
+          "11.84",
+          "2.56" ]
+      position 6.98 0 9.3299999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.84 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3899999 20.84 6.3899999
+      crown_position 0 9.3900003 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "155",
+          "20.04  6.84",
+          "11.84",
+          "2.56" ]
+      position 20.040001 0 6.8400002
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.84 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3899999 18.84 6.3899999
+      crown_position 0 10.39 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "156",
+          "7.22  21.5",
+          "11.84",
+          "2.56" ]
+      position 7.2199998 0 21.5
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.84 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3899999 19.84 6.3899999
+      crown_position 0 9.3900003 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "157",
+          "27.88  0.77",
+          "11.84",
+          "2.56" ]
+      position 27.879999 0 0.76999998
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.84 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3899999 17.84 6.3899999
+      crown_position 0 11.39 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "158",
+          "13.48  32.54",
+          "11.82",
+          "2.55" ]
+      position 13.48 0 32.540001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.82 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3800001 18.82 6.3800001
+      crown_position 0 10.38 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "159",
+          "29.0  19.21",
+          "11.81",
+          "2.55" ]
+      position 29 0 19.209999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.809999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3699999 19.799999 6.3699999
+      crown_position 0 9.3699999 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "160",
+          "26.29  15.26",
+          "11.81",
+          "2.55" ]
+      position 26.290001 0 15.26
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.809999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3699999 20.809999 6.3699999
+      crown_position 0 10.37 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "161",
+          "22.38  32.9",
+          "11.81",
+          "2.55" ]
+      position 22.379999 0 32.900002
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_7_right.gif"
+      crown_size 4 13 4
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "162",
+          "30.46  14.19",
+          "11.81",
+          "2.55" ]
+      position 30.459999 0 14.19
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.809999 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3699999 19.809999 6.3699999
+      crown_position 0 10.37 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "163",
+          "12.64  8.43",
+          "11.8",
+          "2.55" ]
+      position 12.64 0 8.4300003
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.799999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3699999 20.799999 6.3699999
+      crown_position 0 9.3699999 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "164",
+          "9.34  23.45",
+          "11.8",
+          "2.54" ]
+      position 9.3400002 0 23.450001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.799999 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3699999 18.799999 6.3699999
+      crown_position 0 10.37 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "165",
+          "15.27  24.85",
+          "11.79",
+          "2.54" ]
+      position 15.27 0 24.85
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.790001 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3600001 19.790001 6.3600001
+      crown_position 0 10.36 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "166",
+          "3.28  6.87",
+          "11.79",
+          "2.54" ]
+      position 3.28 0 6.8699999
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 2 5 2
+      crown_position 0 0.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "167",
+          "8.67  26.51",
+          "11.79",
+          "2.54" ]
+      position 8.6700001 0 26.51
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.790001 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3600001 18.790001 6.3600001
+      crown_position 0 11.36 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "168",
+          "3.98  32.97",
+          "11.77",
+          "2.54" ]
+      position 3.98 0 32.970001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.77 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3499999 19.77 6.3499999
+      crown_position 0 10.35 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "169",
+          "9.63  10.7",
+          "11.77",
+          "2.54" ]
+      position 9.6300001 0 10.7
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.77 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3499999 18.77 6.3499999
+      crown_position 0 9.3500004 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "170",
+          "30.65  2.37",
+          "11.76",
+          "2.53" ]
+      position 30.65 0 2.3699999
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.76 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3400002 19.76 6.3400002
+      crown_position 0 9.3400002 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "171",
+          "31.66  1.28",
+          "11.76",
+          "2.53" ]
+      position 31.66 0 1.28
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.76 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3400002 18.76 6.3400002
+      crown_position 0 10.34 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "172",
+          "17.95  3.47",
+          "11.75",
+          "2.53" ]
+      position 17.950001 0 3.47
+      stem_texture "wood_20.jpg"
+      stem_size 0.5 8 0.5
+      crown_texture "tree_3_right.gif"
+      crown_size 4.5 14 4.5
+      crown_position 0 5.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "173",
+          "6.63  32.57",
+          "11.75",
+          "2.53" ]
+      position 6.6300001 0 32.57
+      stem_texture "wood_20.jpg"
+      stem_size 0.60000002 6 0.60000002
+      crown_texture "tree_7_right.gif"
+      crown_size 5 18 5
+      crown_position 0 5.5 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "174",
+          "12.55  17.4",
+          "11.75",
+          "2.53" ]
+      position 12.55 0 17.4
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.75 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3400002 18.75 6.3400002
+      crown_position 0 10.34 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "175",
+          "13.74  20.81",
+          "11.75",
+          "2.53" ]
+      position 13.74 0 20.809999
+      stem_texture "wood_20.jpg"
+      stem_size 0.40000001 4 0.40000001
+      crown_texture "tree_3_right.gif"
+      crown_size 3 9 3
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "176",
+          "2.48  19.03",
+          "11.75",
+          "2.53" ]
+      position 2.48 0 19.030001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 18.75 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3400002 20.75 6.3400002
+      crown_position 0 11.34 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "177",
+          "18.53  15.8",
+          "11.75",
+          "2.53" ]
+      position 18.530001 0 15.8
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.75 0.69999999
+      crown_texture "tree_7_right.gif"
+      crown_size 6.3400002 18.75 6.3400002
+      crown_position 0 10.34 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "178",
+          "1.14  26.42",
+          "11.74",
+          "2.53" ]
+      position 1.14 0 26.42
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 19.74 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3400002 17.74 6.3400002
+      crown_position 0 9.3400002 0
+
+    },
+      
+    TREE {
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "179",
+          "17.04  20.84",
+          "11.74",
+          "2.53" ]
+      position 17.040001 0 20.84
+      stem_texture "wood_20.jpg"
+      stem_size 0.1 3 0.1
+      crown_texture "tree_7_right.gif"
+      crown_size 3 7 3
+      crown_position 0 1 0
+
+    },
+      
+    TREE {
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "180",
+          "7.46  7.36",
+          "11.74",
+          "2.53" ]
+      position 7.46 0 7.3600001
+      stem_texture "wood_20.jpg"
+      stem_size 0.69999999 17.74 0.69999999
+      crown_texture "tree_3_right.gif"
+      crown_size 6.3299999 19.74 6.3299999
+      crown_position 0 9.3299999 0
+
+    } ]
+
+}

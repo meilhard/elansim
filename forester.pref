@@ -1,0 +1,49 @@
+[Server]
+Adress	= 127.0.0.1
+Port	= 12345
+
+[Server]
+Adress	= ufgb986
+Port	= 12345
+User	= Marc
+Password = pm1011
+
+[Server]
+Adress	= ufobir
+Port	= 12345
+User	= Marc
+Password = pm1011
+
+[Viewer]
+calculating = false
+
+[Avatar]
+Name	= Hans
+Id	= 1
+Path	= Avatars/ebert.wrl
+
+[Avatar]
+Name	= Dirk
+Id	= 2
+Path	= Avatars/ebert2.wrl
+
+[Avatar]
+Name	= Helge
+Id	= 3
+Path	= Avatars/ebert3.wrl
+
+[Avatar]
+Name	= Marc
+Id	= 4
+Path	= Avatars/ebert4.wrl
+
+[Avatar]
+Name	= Klaus
+Id	= 5
+Path	= Avatars/ebert5.wrl
+
+[Avatar]
+Name	= Tom
+Id	= 6
+Path	= Avatars/ebert7.wrl
+

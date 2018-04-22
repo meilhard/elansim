@@ -1,0 +1,2 @@
+0#erster Server#Dies ist der erste Server#ufobiv.uni-forst.gwdg.de#12345###
+1#zweiter Server#Dies ist der zweite Server#192.168.0.9#12345###

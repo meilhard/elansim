@@ -1,0 +1,977 @@
+#VRML V2.0 utf8
+
+
+Group {
+  children [ 
+    Script {
+      field SFString       Name ""
+
+      field SFInt32       Intervall 0
+
+
+    },
+          PROTO ShaftSystem [
+      field SFInt32      Id 0
+      field MFFloat      aVec [  ]
+      field MFFloat      bVec [  ]
+      field SFFloat      BHDmin 0.5
+    ]
+    {
+
+      DEF ShaftSystem Script {
+        field SFInt32         Id 0
+
+        field MFFloat         aVec [  ]
+
+        field MFFloat         bVec [  ]
+
+        field SFFloat         BHDmin 0
+
+        Id IS Id
+        aVec IS aVec
+        bVec IS bVec
+        BHDmin IS BHDmin
+
+      }    }
+,
+      
+    ShaftSystem {
+      Id 100
+      aVec [ 0, 0, 0, 0,
+          0, 0 ]
+      bVec [ 0, 0, 0, 0,
+          0, 0 ]
+
+    },
+      
+    ShaftSystem {
+      Id 101
+      aVec [ 38.077999, -444.48901, 2230.5449, -4933.5122,
+          4876.312, -1764.531 ]
+      bVec [ 0.384, 15.462, -79.549004, 170.589,
+          -166.44701, 60.493 ]
+
+    },
+      
+    ShaftSystem {
+      Id 102
+      aVec [ 48.494999, -151.543, -45.410999, 659.22803,
+          -799.35303, 290.271 ]
+      bVec [ 0.42399999, 8.5059996, -29.882999, 48.217999,
+          -40.68, 14.347 ]
+
+    },
+      
+    ShaftSystem {
+      Id 103
+      aVec [ 30.250999, -277.133, 1116.3571, -2182.552,
+          2070, -755.50897 ]
+      bVec [ 0.73900002, 9.8719997, -45.723999, 89.446999,
+          -84.460999, 31.079 ]
+
+    },
+      
+    ShaftSystem {
+      Id 104
+      aVec [ 35.52, -230.925, 1152.046, -2863.0029,
+          3181.8821, -1274.832 ]
+      bVec [ 0.40599999, 7.3790002, -39.080002, 95.780998,
+          -108.051, 44.566002 ]
+
+    },
+          PROTO Species [
+      field SFInt32      Id 0
+      field SFString      description ""
+      field SFInt32      Shaftform -1
+      field SFString      CrownTexture ""
+      field SFString      StemTexture ""
+    ]
+    {
+
+      DEF Species Script {
+        field SFInt32         Id 0
+
+        field SFString         description ""
+
+        field SFInt32         Shaftform 0
+
+        field SFString         CrownTexture ""
+
+        field SFString         StemTexture ""
+
+        Id IS Id
+        description IS description
+        Shaftform IS Shaftform
+        CrownTexture IS CrownTexture
+        StemTexture IS StemTexture
+
+      }    }
+,
+      
+    Species {
+      Id 0
+      description "Birch"
+      Shaftform 104
+      CrownTexture "tree_7_right.gif"
+      StemTexture "wood_20.jpg"
+
+    },
+      
+    Species {
+      Id 1
+      description "Beech"
+      Shaftform 103
+      CrownTexture "tree_3_right.gif"
+      StemTexture "S_S_Bark1.jpg"
+
+    },
+      
+    Species {
+      Id 2
+      description "Tree"
+      Shaftform 102
+      CrownTexture "tree_3_right.gif"
+      StemTexture "wood_20.jpg"
+
+    },
+          PROTO GGInfo [
+      field SFString      Name ""
+      field SFString      Scriptpath ""
+      field SFString      IP ""
+      field SFInt32      minAge 0
+      field SFInt32      maxAge 0
+    ]
+    {
+
+      DEF GGInfo Script {
+        field SFString         Name ""
+
+        field SFString         Scriptpath ""
+
+        field SFString         IP ""
+
+        field SFInt32         minAge 0
+
+        field SFInt32         maxAge 0
+
+        Name IS Name
+        Scriptpath IS Scriptpath
+        IP IS IP
+        minAge IS minAge
+        maxAge IS maxAge
+
+      }    }
+,
+          PROTO TREE [
+      field SFInt32      ID 0
+      field SFString      Species ""
+      field SFInt32      status 0
+      field MFString      labels ""
+      field MFString      data ""
+      field SFVec3f      position 0 0 0
+      field MFString      stem_texture "wood_20.jpg"
+      field SFVec3f      stem_size 1 1 1
+      field MFString      crown_texture "tree_7_right.gif"
+      field MFFloat      crown_values [ 1, 1, 1, 1,
+          1, 1 ]
+      field SFVec3f      crown_size 1 1 1
+      field SFVec3f      crown_position 0 0 0
+      field SFInt32      Shaftform -9999
+    ]
+    {
+
+      DEF Tree Transform {
+        translation IS position
+        children [ 
+          DEF Info Script {
+            field SFInt32             ID 0
+
+            field SFString             Species ""
+
+            field SFInt32             Shaftform 0
+
+            field SFInt32             Status 0
+
+            field MFString             Labels [  ]
+
+            field MFString             Data [  ]
+
+            field MFFloat             CrownValues [  ]
+
+            ID IS ID
+            Species IS Species
+            Shaftform IS Shaftform
+            Status IS status
+            Labels IS labels
+            Data IS data
+            CrownValues IS crown_values
+
+          },
+            
+          DEF Stem Transform {
+            translation 0 0 0
+            scale IS stem_size
+            children 
+              DEF StemShape Shape {
+                appearance 
+                DEF StemAppearance Appearance {
+                  material 
+                  Material {
+                    diffuseColor 0.80000001 0.80000001 0.80000001
+                    transparency 0
+
+                  }
+                  texture 
+                  ImageTexture {
+                    url IS stem_texture
+
+                  }
+                  textureTransform 
+                  TextureTransform {
+                    scale 2 7
+
+                  }
+
+                }
+                geometry 
+                DEF StemGeometry Extrusion {
+                  crossSection [ 0.5 0,
+                      0.46193999 -0.191342,
+                      0.353553 -0.353553,
+                      0.191342 -0.46193999,
+                      0 -0.5,
+                      -0.191342 -0.46193999,
+                      -0.353553 -0.353553,
+                      -0.46193999 -0.191342,
+                      -0.5 0,
+                      -0.46193999 0.191342,
+                      -0.353553 0.353553,
+                      -0.191342 0.46193999,
+                      0 0.5,
+                      0.191342 0.46193999,
+                      0.353553 0.353553,
+                      0.46193999 0.191342,
+                      0.5 0 ]
+                  scale [ 1.1454999 1.1454999,
+                      1.0465 1.0465,
+                      1.0154999 1.0154999,
+                      1 1,
+                      0.96340001 0.96340001,
+                      0.91350001 0.91350001,
+                      0.86699998 0.86699998,
+                      0.84549999 0.84549999,
+                      0.79720002 0.79720002,
+                      0.6455 0.6455,
+                      0.59189999 0.59189999,
+                      0.5327 0.5327,
+                      0.43869999 0.43869999,
+                      0.34549999 0.34549999 ]
+                  spine [ 0 0 0,
+                      0 0.02 0,
+                      0 0.039999999 0,
+                      0 0.050000001 0,
+                      0 0.073564798 0,
+                      0 0.110625 0,
+                      0 0.159907 0,
+                      0 0.19 0,
+                      0 0.33000001 0,
+                      0 0.76999998 0,
+                      0 0.84208 0,
+                      0 0.89823997 0,
+                      0 0.95893002 0,
+                      0 1 0 ]
+
+                }
+
+              }
+
+          },
+            
+          DEF Marker Transform {
+            translation 0 0 0
+            scale 1 1 1
+            children 
+              DEF MarkerShape Shape {
+                appearance 
+                DEF MarkerAppearance Appearance {
+                  material 
+                  Material {
+                    diffuseColor 0 1 0
+                    transparency 1
+
+                  }
+                  texture 
+                  ImageTexture {
+                    url ""
+
+                  }
+
+                }
+                geometry 
+                DEF MarkerGeometry Cylinder {
+                  radius 1
+                  height 0.2
+
+                }
+
+              }
+
+          },
+            
+          DEF Crown Transform {
+            translation IS crown_position
+            scale IS crown_size
+            center 0 0 0
+            children [ 
+              Transform {
+                children 
+                  DEF CrownShape Shape {
+                    appearance 
+                    DEF CrownAppearance Appearance {
+                      material 
+                      Material {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      ImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      TextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry IndexedFaceSet {
+                      coord 
+                      Coordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      TextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              Transform {
+                rotation 0 1 0  1.0459999
+                children 
+                  DEF CrownShape Shape {
+                    appearance 
+                    DEF CrownAppearance Appearance {
+                      material 
+                      Material {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      ImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      TextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry IndexedFaceSet {
+                      coord 
+                      Coordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      TextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              Transform {
+                rotation 0 1 0  2.092
+                children 
+                  DEF CrownShape Shape {
+                    appearance 
+                    DEF CrownAppearance Appearance {
+                      material 
+                      Material {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      ImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      TextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry IndexedFaceSet {
+                      coord 
+                      Coordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      TextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              Transform {
+                rotation 0 1 0  3.1400001
+                children 
+                  DEF CrownShape Shape {
+                    appearance 
+                    DEF CrownAppearance Appearance {
+                      material 
+                      Material {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      ImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      TextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry IndexedFaceSet {
+                      coord 
+                      Coordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      TextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              Transform {
+                rotation 0 1 0  4.152
+                children 
+                  DEF CrownShape Shape {
+                    appearance 
+                    DEF CrownAppearance Appearance {
+                      material 
+                      Material {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      ImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      TextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry IndexedFaceSet {
+                      coord 
+                      Coordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      TextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              },
+                
+              Transform {
+                rotation 0 1 0  5.1659999
+                children 
+                  DEF CrownShape Shape {
+                    appearance 
+                    DEF CrownAppearance Appearance {
+                      material 
+                      Material {
+                        diffuseColor 0.80000001 0.80000001 0.80000001
+                        transparency 0
+
+                      }
+                      texture 
+                      ImageTexture {
+                        repeatS FALSE
+                        repeatT FALSE
+                        url IS crown_texture
+
+                      }
+                      textureTransform 
+                      TextureTransform {
+                        scale 1 1
+
+                      }
+
+                    }
+                    geometry 
+                    DEF CrownGeometry IndexedFaceSet {
+                      coord 
+                      Coordinate {
+                        point [ 0 0 0,
+                            0.5 0 0,
+                            0.5 0.5 0,
+                            0 0.5 0 ]
+
+                      }
+                      texCoord 
+                      TextureCoordinate {
+                        point [ 0 0,
+                            1 0,
+                            1 1,
+                            0 1 ]
+
+                      }
+                      coordIndex [ 0, 1, 2, 3, -1 ]
+                      solid FALSE
+
+                    }
+
+                  }
+
+              } ]
+
+          } ]
+
+      }    }
+,
+      
+    GGInfo {
+      Name "Wachstumsgenerator1"
+      Scriptpath "http://134.76.193.205/elan-sim/empfangen4.cfm"
+      IP "134.76.193.205"
+      minAge 0
+      maxAge 15
+
+    },
+      
+    GGInfo {
+      Name "Wachstumsgenerator2"
+      Scriptpath "http://134.76.193.210/elan-sim/empfangen4.cfm"
+      IP "134.76.193.210"
+      minAge 1
+      maxAge 30
+
+    },
+      
+    GGInfo {
+      Name "Wachstumsgenerator3"
+      Scriptpath "http://134.76.193.215/elan-sim/empfangen4.cfm"
+      IP "134.76.193.215"
+      minAge 2
+      maxAge 45
+
+    },
+      
+    WorldInfo {
+      title "1. Waldbestand"
+      info [ "Dieser Waldbestand ist der erste Testbestand",
+          "des Instituts für Forstliche Biometrie und",
+          "Informatik.",
+          "Ich schreibe diesen Text eigentlich nur um",
+          "zu testen ob man soviel Text auch anzeigen lassen",
+          "kann!" ]
+
+    },
+      
+    Background {
+      groundColor [ 0 0 0,
+          0.2 0.1 0,
+          0.30000001 0.2 0.1 ]
+      skyColor [ 0 0 0,
+          0 0.5 1,
+          1 1 1 ]
+      groundAngle [ 0.78500003, 1.5700001 ]
+      skyAngle [ 0.78500003, 1.571 ]
+
+    },
+      
+    DEF Ground Shape {
+      appearance 
+      Appearance {
+        material 
+        Material {
+
+        }
+        texture 
+        ImageTexture {
+          repeatS TRUE
+          repeatT TRUE
+          url "bewuchs1.jpg"
+
+        }
+        textureTransform 
+        TextureTransform {
+          scale 30 30
+
+        }
+
+      }
+      geometry 
+      ElevationGrid {
+        solid TRUE
+        creaseAngle 1
+        zDimension 24
+        xDimension 24
+        zSpacing 5
+        xSpacing 5
+        height [ 0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 0, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 0, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            4, 4, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 4, 4,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 0, 0, 0,
+            0, 2, 2, 2,
+            2, 2, 1, 2,
+            1, 2, 3, 3,
+            4, 5, 5, 4,
+            3, 2, 1, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 0, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 4,
+            4, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            4, 4, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 5, 5,
+            5, 5, 4, 4,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 2, 2,
+            3, 3, 3, 3,
+            2, 2, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 1, 1, 2,
+            2, 2, 2, 2,
+            2, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0,
+            0, 0, 1, 1,
+            1, 1, 1, 1,
+            1, 1, 1, 0,
+            0, 1, 2, 3,
+            3, 4, 4, 3,
+            3, 2, 1, 0 ]
+
+      }
+
+    },
+      
+    DEF DefaultSystem ShaftSystem {
+      Id -1
+      aVec [ 18.354, -16.507, -23.066, -131.91701,
+          351.72, -197.61301 ]
+      bVec [ 1.1799999, 0.47400001, -3.5999999, 12.381,
+          -19.007999, 9.5719995 ]
+
+    },
+      
+    DEF BuildInfo Script {
+      field SFBool       useShaftSystem TRUE
+
+      field SFBool       adjustYPosition TRUE
+
+
+    },
+      
+    TREE {
+      ID 1
+      Species "Birch"
+      status 1
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "1",
+          "x: 8, y: 1",
+          "20 Meter",
+          "6 Meter" ]
+      position 60 1 60
+      stem_texture "wood_20.jpg"
+      stem_size 1 30 1
+      crown_texture "tree_7_right.gif"
+      crown_size 15 45 15
+      crown_position 0 6 0
+
+    },
+      
+    TREE {
+      ID 2
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "2",
+          "x: 8, y: 1",
+          "20 Meter",
+          "6 Meter" ]
+      position 40 2 60
+      stem_texture "wood_20.jpg"
+      stem_size 1 20 1
+      crown_texture "tree_7_right.gif"
+      crown_size 15 35 15
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      ID 3
+      Species "Birch"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "3",
+          "x: 8, y: 1",
+          "20 Meter",
+          "6 Meter" ]
+      position 60 0 40
+      stem_texture "wood_20.jpg"
+      stem_size 1 20 1
+      crown_texture "tree_7_right.gif"
+      crown_size 15 35 15
+      crown_position 0 3 0
+
+    },
+      
+    TREE {
+      ID 4
+      Species "Beech"
+      status 0
+      labels [ "Baum",
+          "Postition",
+          "Hoehe",
+          "Kronenbreite" ]
+      data [ "4",
+          "x: 8, y: 1",
+          "20 Meter",
+          "6 Meter" ]
+      position 40 3 40
+      stem_texture "S_S_Bark1.jpg"
+      stem_size 1 20 1
+      crown_texture "tree_3_right.gif"
+      crown_size 15 35 15
+      crown_position 0 3 0
+
+    } ]
+
+}

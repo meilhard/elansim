@@ -1,0 +1,68 @@
+<html>
+<body>
+<pre>
+<h1>Erstellungsprotokoll</h1>
+<h3>
+--------------------Konfiguration: ElanSim - Win32 Debug--------------------
+</h3>
+<h3>Befehlszeilen</h3>
+Erstellen der temporären Datei  "C:\DOKUME~1\MARCEI~1\LOKALE~1\Temp\RSP298.tmp" mit Inhalten
+[
+/nologo /MD /W3 /Gm /GX /ZI /I "C:\qt\include" /I "c:\Coin3D\include" /D "COIN_DLL" /D "SOQT_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "QT_DLL" /D "QT_THREAD_SUPPORT" /Fp"Debug/ElanSim.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /I /GZ /c 
+"C:\Dokumente und Einstellungen\Marc Eilhard\Desktop\ElanSim\Wizard.cpp"
+"C:\Dokumente und Einstellungen\Marc Eilhard\Desktop\ElanSim\Scene.cpp"
+]
+Creating command line "cl.exe @C:\DOKUME~1\MARCEI~1\LOKALE~1\Temp\RSP298.tmp" 
+Erstellen der temporären Datei  "C:\DOKUME~1\MARCEI~1\LOKALE~1\Temp\RSP299.tmp" mit Inhalten
+[
+imagehlp.lib c:\Coin3D\lib\coin2.lib c:\Coin3D\lib\soqt1.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib imm32.lib wsock32.lib C:\qt\lib\qt-mt230nc.lib C:\qt\lib\qtmain.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ElanSim.pdb" /debug /machine:I386 /out:"Debug/ElanSim.exe" /pdbtype:sept 
+".\Debug\moc_AboutDialog.obj"
+".\Debug\moc_Chat.obj"
+".\Debug\moc_CutTreesD.obj"
+".\Debug\moc_GrowthGenDialog.obj"
+".\Debug\moc_HeadView.obj"
+".\Debug\moc_HelpDialog.obj"
+".\Debug\moc_HideTrees.obj"
+".\Debug\moc_Information.obj"
+".\Debug\moc_KoordinatenDialog.obj"
+".\Debug\moc_Shellwidget.obj"
+".\Debug\moc_WaitDialog.obj"
+".\Debug\moc_Wizard.obj"
+".\Debug\AboutDialog.obj"
+".\Debug\Chat.obj"
+".\Debug\CutTreesD.obj"
+".\Debug\GrowthGenDialog.obj"
+".\Debug\HeadView.obj"
+".\Debug\HelpDialog.obj"
+".\Debug\Information.obj"
+".\Debug\KoordinatenDialog.obj"
+".\Debug\Load.obj"
+".\Debug\WaitDialog.obj"
+".\Debug\Wizard.obj"
+".\Debug\ActionFactory.obj"
+".\Debug\Avatar.obj"
+".\Debug\Connection.obj"
+".\Debug\File.obj"
+".\Debug\HideTrees.obj"
+".\Debug\main.obj"
+".\Debug\Preferences.obj"
+".\Debug\Scene.obj"
+".\Debug\Shellwidget.obj"
+".\Debug\Tree.obj"
+".\Debug\Viewer.obj"
+".\Debug\icon.res"
+]
+Erstellen der Befehlzeile "link.exe @C:\DOKUME~1\MARCEI~1\LOKALE~1\Temp\RSP299.tmp"
+<h3>Ausgabefenster</h3>
+Kompilierung läuft...
+Wizard.cpp
+Scene.cpp
+Linker-Vorgang läuft...
+
+
+
+<h3>Ergebnisse</h3>
+ElanSim.exe - 0 Fehler, 0 Warnung(en)
+</pre>
+</body>
+</html>

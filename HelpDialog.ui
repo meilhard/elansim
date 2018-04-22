@@ -1,0 +1,39 @@
+<!DOCTYPE UI><UI>
+<class>HelpDialog</class>
+<widget>
+    <class>QDialog</class>
+    <property stdset="1">
+        <name>name</name>
+        <cstring>HelpDialog</cstring>
+    </property>
+    <property stdset="1">
+        <name>geometry</name>
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>419</width>
+            <height>523</height>
+        </rect>
+    </property>
+    <property stdset="1">
+        <name>caption</name>
+        <string>Hilfe</string>
+    </property>
+    <widget>
+        <class>QMultiLineEdit</class>
+        <property stdset="1">
+            <name>name</name>
+            <cstring>MultiLineEdit1</cstring>
+        </property>
+        <property stdset="1">
+            <name>geometry</name>
+            <rect>
+                <x>11</x>
+                <y>5</y>
+                <width>395</width>
+                <height>507</height>
+            </rect>
+        </property>
+    </widget>
+</widget>
+</UI>

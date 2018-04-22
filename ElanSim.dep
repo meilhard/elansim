@@ -1,0 +1,147 @@
+# Microsoft Developer Studio erstellte Abhängigkeitsdatei, einbezogen von ElanSim.mak
+
+.\Avatar.cpp : \
+	".\Avatar.h"\
+	"c:\coin3d\include\inventor\actions\soaction.h"\
+	"c:\coin3d\include\inventor\actions\sosearchaction.h"\
+	"c:\coin3d\include\inventor\actions\sosubaction.h"\
+	"c:\coin3d\include\inventor\c\base\hash.h"\
+	"c:\coin3d\include\inventor\c\base\rbptree.h"\
+	"c:\coin3d\include\inventor\c\basic.h"\
+	"c:\coin3d\include\inventor\fields\sofield.h"\
+	"c:\coin3d\include\inventor\fields\sofieldcontainer.h"\
+	"c:\coin3d\include\inventor\fields\sofielddata.h"\
+	"c:\coin3d\include\inventor\fields\somfield.h"\
+	"c:\coin3d\include\inventor\fields\somfnode.h"\
+	"c:\coin3d\include\inventor\fields\sosfcolor.h"\
+	"c:\coin3d\include\inventor\fields\sosfenum.h"\
+	"c:\coin3d\include\inventor\fields\sosffloat.h"\
+	"c:\coin3d\include\inventor\fields\sosfield.h"\
+	"c:\coin3d\include\inventor\fields\sosfnode.h"\
+	"c:\coin3d\include\inventor\fields\sosfrotation.h"\
+	"c:\coin3d\include\inventor\fields\sosfvec3f.h"\
+	"c:\coin3d\include\inventor\fields\sosubfield.h"\
+	"c:\coin3d\include\inventor\lists\sbintlist.h"\
+	"c:\coin3d\include\inventor\lists\sblist.h"\
+	"c:\coin3d\include\inventor\lists\sbplist.h"\
+	"c:\coin3d\include\inventor\lists\soactionmethodlist.h"\
+	"c:\coin3d\include\inventor\lists\soauditorlist.h"\
+	"c:\coin3d\include\inventor\lists\sobaselist.h"\
+	"c:\coin3d\include\inventor\lists\sodetaillist.h"\
+	"c:\coin3d\include\inventor\lists\soenabledelementslist.h"\
+	"c:\coin3d\include\inventor\lists\soenginelist.h"\
+	"c:\coin3d\include\inventor\lists\soengineoutputlist.h"\
+	"c:\coin3d\include\inventor\lists\sofieldlist.h"\
+	"c:\coin3d\include\inventor\lists\sonodelist.h"\
+	"c:\coin3d\include\inventor\lists\sopathlist.h"\
+	"c:\coin3d\include\inventor\lists\sopickedpointlist.h"\
+	"c:\coin3d\include\inventor\lists\sotypelist.h"\
+	"c:\coin3d\include\inventor\misc\sobase.h"\
+	"c:\coin3d\include\inventor\misc\solightpath.h"\
+	"c:\coin3d\include\inventor\misc\sonotification.h"\
+	"c:\coin3d\include\inventor\misc\sonotrec.h"\
+	"c:\coin3d\include\inventor\misc\sotemppath.h"\
+	"c:\coin3d\include\inventor\nodes\sogroup.h"\
+	"c:\coin3d\include\inventor\nodes\sonode.h"\
+	"c:\coin3d\include\inventor\nodes\soshape.h"\
+	"c:\coin3d\include\inventor\nodes\sosubnode.h"\
+	"c:\coin3d\include\inventor\sbbasic.h"\
+	"c:\coin3d\include\inventor\sbbox3f.h"\
+	"c:\coin3d\include\inventor\sbcolor.h"\
+	"c:\coin3d\include\inventor\sbcylinder.h"\
+	"c:\coin3d\include\inventor\sbdict.h"\
+	"c:\coin3d\include\inventor\sbdpviewvolume.h"\
+	"c:\coin3d\include\inventor\sbline.h"\
+	"c:\coin3d\include\inventor\sblinear.h"\
+	"c:\coin3d\include\inventor\sbmatrix.h"\
+	"c:\coin3d\include\inventor\sbname.h"\
+	"c:\coin3d\include\inventor\sbplane.h"\
+	"c:\coin3d\include\inventor\sbrotation.h"\
+	"c:\coin3d\include\inventor\sbsphere.h"\
+	"c:\coin3d\include\inventor\sbstring.h"\
+	"c:\coin3d\include\inventor\sbvec2f.h"\
+	"c:\coin3d\include\inventor\sbvec2s.h"\
+	"c:\coin3d\include\inventor\sbvec3d.h"\
+	"c:\coin3d\include\inventor\sbvec3f.h"\
+	"c:\coin3d\include\inventor\sbvec3s.h"\
+	"c:\coin3d\include\inventor\sbvec4f.h"\
+	"c:\coin3d\include\inventor\sbviewvolume.h"\
+	"c:\coin3d\include\inventor\sensors\sosensormanager.h"\
+	"c:\coin3d\include\inventor\sodb.h"\
+	"c:\coin3d\include\inventor\sofullpath.h"\
+	"c:\coin3d\include\inventor\soinput.h"\
+	"c:\coin3d\include\inventor\solists.h"\
+	"c:\coin3d\include\inventor\sooutput.h"\
+	"c:\coin3d\include\inventor\sopath.h"\
+	"c:\coin3d\include\inventor\sotype.h"\
+	"c:\coin3d\include\inventor\system\inttypes.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmlappearance.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmlbox.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmlgeometry.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmlgroup.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmlmaterial.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmlparent.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmlshape.h"\
+	"c:\coin3d\include\inventor\vrmlnodes\sovrmltransform.h"\
+	
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "ElanSim - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "ElanSim - Win32 Debug"
+
+!ENDIF 
+

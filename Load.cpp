@@ -1,0 +1,31 @@
+// Load.cpp: Implementierung der Klasse Load.
+//
+//////////////////////////////////////////////////////////////////////
+
+
+
+#include "Load.h"
+#include "Scene.h"
+#include "File.h"
+
+#include <qlabel.h>
+//////////////////////////////////////////////////////////////////////
+// Konstruktion/Destruktion
+//////////////////////////////////////////////////////////////////////
+
+Load::Load( const char* file) 
+	: _file(file)
+{
+
+}
+
+void Load::run()
+{
+	File f;
+	_scene = f.loadScene(_file);
+}
+
+Scene* Load::getScene()
+{
+	return _scene;
+}
